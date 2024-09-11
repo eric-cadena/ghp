@@ -1,3 +1,3 @@
 # ghp
 
-This is GHP
+This is GHP! Have an Octocat day.

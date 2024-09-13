@@ -12,6 +12,33 @@
             font-size: 16px;
         }
     </style>
+    <script>
+        // Function to get a cookie by name
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+            }
+            return null;
+        }
+
+        // Function to display cookie values
+        function displayCookies() {
+            const sessionId = getCookie('session_id');
+            const username = getCookie('username');
+
+            if (sessionId && username) {
+                document.getElementById('cookie-info').innerHTML = 
+                    `<p><strong>Session ID:</strong> ${sessionId}</p>
+                     <p><strong>Username:</strong> ${username}</p>`;
+            } else {
+                document.getElementById('cookie-info').innerHTML = '<p>No cookies found.</p>';
+            }
+        }
+    </script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPXJR2Z6B7"></script>
@@ -22,10 +49,13 @@
 
   gtag('config', 'G-NPXJR2Z6B7');
 </script>
-<body>
+<body onload="displayCookies()">
 
     <h1>Welcome to the Second Page</h1>
     <p>This is the page you navigate to when you click the first button.</p>
+
+    <!-- Display Cookie Information -->
+    <div id="cookie-info"></div>
 
     <!-- Back Button to Return to Main Page -->
     <button class="back-button" onclick="window.location.href='index.html'">Go Back</button>

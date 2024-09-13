@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Single Page App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .form-section, .button-section {
+            margin-bottom: 30px;
+        }
+        .form-section label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .form-section input, .form-section textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .button-section button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Single Page App</h1>
+
+    <div class="form-section">
+        <h2>Form Fields</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+
+    <div class="button-section">
+        <h2>Buttons</h2>
+        <button>Action 1</button>
+        <button>Action 2</button>
+        <button>Action 3</button>
+    </div>
+
+</body>
+</html>

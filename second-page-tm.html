@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Second Page</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ9S8WQP');</script>
+    <!-- End Google Tag Manager -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        // Function to get a cookie by name
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+            }
+            return null;
+        }
+
+        // Function to display cookie values
+        function displayCookies() {
+            const sessionId = getCookie('session_id');
+            const username = getCookie('username');
+
+            if (sessionId && username) {
+                document.getElementById('cookie-info').innerHTML = 
+                    `<p><strong>Session ID:</strong> ${sessionId}</p>
+                     <p><strong>Username:</strong> ${username}</p>`;
+            } else {
+                document.getElementById('cookie-info').innerHTML = '<p>No cookies found.</p>';
+            }
+        }
+    </script>
+</head>
+<body onload="displayCookies()">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ9S8WQP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <h1>Welcome to the Second Page</h1>
+    <p>This is the page you navigate to when you click the first button.</p>
+
+    <!-- Display Cookie Information -->
+    <div id="cookie-info"></div>
+
+    <!-- Back Button to Return to Main Page -->
+    <button class="back-button" onclick="window.location.href='index-tm.html'">Go Back</button>
+
+</body>
+</html>

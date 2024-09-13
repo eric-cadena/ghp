@@ -1,6 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Simple Single Page App</title>
+    <style>
+        /* [Same CSS as before] */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .form-section, .button-section {
+            margin-bottom: 30px;
+        }
+        .form-section label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .form-section input, .form-section textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .button-section button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + days*24*60*60*1000);
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Function to handle button click and set cookies
+        function handleButtonClick() {
+            // Set a session cookie
+            setCookie('session_id', 'ABC123XYZ', 1); // Expires in 1 day
+
+            // Set a user cookie
+            const username = document.getElementById('username').value;
+            setCookie('username', username, 7); // Expires in 7 days
+
+            // Redirect to second page
+            window.location.href = 'second-page.html';
+        }
+    </script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPXJR2Z6B7"></script>
@@ -11,40 +63,17 @@
 
   gtag('config', 'G-NPXJR2Z6B7');
 </script>
-<title>Simple Single Page App</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 40px;
-    }
-    .form-section, .button-section {
-        margin-bottom: 30px;
-    }
-    .form-section label {
-        display: block;
-        margin-top: 15px;
-        font-weight: bold;
-    }
-    .form-section input, .form-section textarea {
-        width: 100%;
-        max-width: 500px;
-        padding: 8px;
-        margin-top: 5px;
-    }
-    .button-section button {
-        padding: 10px 20px;
-        margin-right: 10px;
-        font-size: 16px;
-    }
-</style>
-
 <body>
 
     <h1>Simple Single Page App</h1>
 
+    <!-- Added Link -->
+    <p>Visit our <a href="https://www.example.com">official website</a> for more information.</p>
+
     <div class="form-section">
         <h2>Form Fields</h2>
-        <form>
+        <form onsubmit="return false;">
+            <!-- [Same form fields as before] -->
             <label for="username">Username:</label>
             <input type="text" id="username" name="username">
 
@@ -57,14 +86,16 @@
             <label for="bio">Bio:</label>
             <textarea id="bio" name="bio" rows="4"></textarea>
 
-            <button type="submit">Submit</button>
+            <!-- Removed submit button as we are not submitting the form -->
+            <!-- <button type="submit">Submit</button> -->
             <button type="reset">Reset</button>
         </form>
     </div>
 
     <div class="button-section">
         <h2>Buttons</h2>
-        <button onclick="window.location.href='second-page.html'">Goto Page 2</button>
+        <!-- Modified First Button to Set Cookies and Navigate to Another Page -->
+        <button onclick="handleButtonClick()">Action 1</button>
         <button>Action 2</button>
         <button>Action 3</button>
     </div>
